@@ -29,16 +29,16 @@ color: #fff;
   margin-bottom: 50px;
 }
 .sidebar{
+  width: 250px;
+  background-color: #051320;
+  color: #fff;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 250px;
-  flex-direction: column;
-  background-color: #000;
-  padding: 20px 0;
-  color: #fff;
-  justify-content: space-between;
 }
 nav{
   display: flex;
@@ -52,7 +52,7 @@ nav a{
   color: #ecf0f1;
   font-size: 20px;
   padding: 5px 15px;
-  transition: background-color 0.3s;
+  transition: 0.3s;
   border-bottom: 1px solid #302f2f;
 }
 nav a:hover{
@@ -281,7 +281,7 @@ nav a i{
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 10px;
-  text-align: center;
+  overflow: hidden;
   transition: box-shadow 0.3s ease;
   text-align: center;
 }
@@ -340,8 +340,8 @@ nav a i{
 .contact p{
   margin-bottom: 30px;
   font-size: 20px;
-  text-align: center;
   line-height: 1.5;
+  color: #f8f8f8;
 }
 .contact-form{
   display: flex;
@@ -352,6 +352,7 @@ nav a i{
   padding: 50px;
   padding-top: 70px;
   boarder-radius: 6px;
+  margin-bottom: 30px;
 }
 .contact-form input,
 .contact-form textarea{
@@ -383,11 +384,12 @@ nav a i{
   display: block;
   margin-left: auto; 
   margin-right: auto;
-  width: 60%;
+  width: 100%;
 }
 .contact-cards{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 .contact-card{
@@ -395,6 +397,7 @@ nav a i{
   padding: 20px;
   text-align: center;
   border-radius: 10px;
+  width: 250px;
 }
 .contact-card i{
   font-size: 28px;
@@ -433,7 +436,7 @@ nav a i{
   text-align: center;
   padding: 20px;
   font-size: 14px;
-  margin-top: 16px;
+  margin-top: 60px;
   margin-bottom: 20px;
   margin-right: 20px;
   margin-left: 20px;
@@ -522,4 +525,138 @@ nav a i{
 .login-btn:hover{
   background-color: #9745da;
   color: #fff;
+}
+
+/* Media Query */
+
+@media (min-width: 846px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+@media (max-width: 844px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .particles-js {
+    height: 50vh;
+  }
+
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
+
+  .text h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .text ol li span {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .about,
+  .services,
+  .portfolio,
+  .contact,
+  .contact-card-section {
+    width: 90%;
+  }
+
+  .contact-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Burger Menu */
+
+.hamburger {
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  /* margin: 5px 0; */
+  margin-top: 0;
+  margin-bottom: 5px;
+  position: relative;
+  top: 10px;
+  left: 5px;
+
+  transition: 0.4s;
+  border-radius: 2px;
+}
+
+/* Animation states */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 70%;
+  height: 100vh;
+  background: #222;
+  transition: 0.3s ease;
+  z-index: 1000;
+  padding-top: 4rem;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.mobile-menu ul li {
+  margin: 1.5rem 0;
+}
+
+/* .mobile-menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+} */
+
+.mobile-menu.show {
+  left: 0;
+}
+
+.logo a {
+  border-bottom: none;
+}
+
+.signup-btn a {
+  border-bottom: none;
 }
